@@ -56,30 +56,4 @@ public class CityUtils {
         return new City(arr[4], arr[3], arr[2], Integer.parseInt(arr[1]), arr[0]);
 
     }
-
-    /**
-     * Сортировка списка городов по наименованию в алфавитном порядке
-     *
-     * @param cities список городов
-     * @return  отсортированный массив с данными о городах
-     */
-    public static List<City> sortByName(List<City> cities){
-        return cities.stream()
-                .sorted((c1, c2) -> c1.getName().compareToIgnoreCase(c2.getName()))
-                .collect(Collectors.toUnmodifiableList());
-    }
-
-    /**
-     * Сортировка списка городов по федеральному округу и наименованию города внутри каждого федерального округа
-     *
-     * @param cities список городов
-     * @return отсортированный массив с данными о городах
-     */
-    public static List<City> sortByDistrictAndName(List<City> cities){
-        return cities.stream()
-                .sorted(Comparator.comparing(City::getDistrict).thenComparing(City::getName))
-                .collect(Collectors.toUnmodifiableList());
-    }
-
-
 }
